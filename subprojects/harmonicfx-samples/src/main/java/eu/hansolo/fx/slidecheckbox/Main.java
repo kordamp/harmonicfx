@@ -13,43 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.hansolo.fx.circularprogressindicator;
+package eu.hansolo.fx.slidecheckbox;
 
+import eu.hansolo.fx.slidecheckbox.SlideCheckBox;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
 /**
- * Created by hansolo on 08.04.16.
+ * Created by
+ * User: hansolo
+ * Date: 30.08.13
+ * Time: 15:32
  */
-public class Main extends Application {
-    private CircularProgressIndicator indicator;
 
-    @Override  public void init() {
-        indicator = new CircularProgressIndicator();
-    }
+public class Main extends Application {
 
     @Override public void start(Stage stage) {
-        StackPane pane = new StackPane(indicator);
+        SlideCheckBox checkBox = new SlideCheckBox();
+        //checkBox.setScaleX(0.5);
+        //checkBox.setScaleY(0.5);
 
-        Scene scene = new Scene(pane);
+        StackPane pane = new StackPane();
+        pane.getChildren().addAll(checkBox);
 
-        stage.setTitle("Circular Progress Indicator");
+        Scene scene = new Scene(pane, 200, 100);
+
         stage.setScene(scene);
+        stage.setTitle("JavaFX FridayFun XVIII");
         stage.show();
-
-        indicator.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
-    }
-
-    @Override public void stop() {
-        System.exit(0);
     }
 
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
-
 }

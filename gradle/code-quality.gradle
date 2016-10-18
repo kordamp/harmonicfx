@@ -44,7 +44,7 @@ license {
         java  = 'SLASHSTAR_STYLE'
         fxml  = 'XML_STYLE'
     }
-    ext.year   = '2014-2016'
+    ext.year   = '2013-2016'
     ext.author = 'Gerrit Grunwald'
     exclude '**/*.png'
     exclude '**/*.ttf'

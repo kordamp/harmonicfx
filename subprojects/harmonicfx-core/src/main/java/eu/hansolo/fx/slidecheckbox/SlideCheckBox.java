@@ -13,15 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.hansolo.fx.weather;
+package eu.hansolo.fx.slidecheckbox;
 
-import java.util.Optional;
+import javafx.scene.control.CheckBox;
 
 
 /**
- * Created by hansolo on 04.10.16.
+ * User: hansolo
+ * Date: 07.10.13
+ * Time: 07:44
+ * Original version: http://dribbble.com/shots/765858-Switch-gif
  */
-public class ApiKeys {
-    public static final Optional<String> DARK_SKY_API_KEY = Optional.ofNullable(System.getenv("DARK_SKY_API_KEY"));
-    public static final Optional<String> MAPQUEST_API_KEY = Optional.ofNullable(System.getenv("MAPQUEST_API_KEY"));
+public class SlideCheckBox extends CheckBox {
+
+    // ******************** Constructors **************************************
+    public SlideCheckBox() {
+        this("");
+    }
+    public SlideCheckBox(final String TEXT) {
+        super(TEXT);
+        getStylesheets().add(getClass().getResource("slidecheckbox.css").toExternalForm());
+        setSkin(new SlideCheckBoxSkin(this));
+    }
 }
