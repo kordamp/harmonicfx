@@ -15,13 +15,12 @@
  */
 package eu.hansolo.fx.funlevelgauge;
 
-import eu.hansolo.fx.funlevelgauge.FunLevelGauge;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.stage.Stage;
-import javafx.scene.layout.StackPane;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.util.Random;
 

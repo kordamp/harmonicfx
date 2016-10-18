@@ -15,6 +15,7 @@
  */
 package eu.hansolo.fx.fonts;
 
+import eu.hansolo.fx.yotaclock.YotaClock;
 import javafx.scene.text.Font;
 
 
@@ -33,6 +34,7 @@ public class Fonts {
     private static final String ROBOTO_REGULAR_CONDENSED_NAME;
     private static final String ROBOTO_BOLD_CONDENSED_NAME;
     private static final String DIN_NAME;
+    private static final String LATO_LIGHT_NAME;
 
     private static String robotoThinName;
     private static String robotoLightName;
@@ -43,6 +45,7 @@ public class Fonts {
     private static String robotoRegularCondensedName;
     private static String robotoBoldCondensedName;
     private static String dinName;
+    private static String latoLightName;
 
     static {
         try {
@@ -55,6 +58,7 @@ public class Fonts {
             robotoRegularCondensedName = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/RobotoCondensed-Regular.ttf"), 10).getName();
             robotoBoldCondensedName    = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/RobotoCondensed-Bold.ttf"), 10).getName();
             dinName                    = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/DIN.ttf"), 10).getName();
+            latoLightName              = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/Lato-Lig.ttf"), 10).getName();
         } catch (Exception exception) { }
         ROBOTO_THIN_NAME              = robotoThinName;
         ROBOTO_LIGHT_NAME             = robotoLightName;
@@ -64,7 +68,8 @@ public class Fonts {
         ROBOTO_LIGHT_CONDENSED_NAME   = robotoLightCondensedName;
         ROBOTO_REGULAR_CONDENSED_NAME = robotoRegularCondensedName;
         ROBOTO_BOLD_CONDENSED_NAME    = robotoBoldCondensedName;
-        DIN_NAME = dinName;
+        DIN_NAME                      = dinName;
+        LATO_LIGHT_NAME               = latoLightName;
     }
 
 
@@ -78,4 +83,5 @@ public class Fonts {
     public static Font robotoCondensedRegular(final double SIZE) { return new Font(ROBOTO_REGULAR_CONDENSED_NAME, SIZE); }
     public static Font robotoCondensedBold(final double SIZE) { return new Font(ROBOTO_BOLD_CONDENSED_NAME, SIZE); }
     public static Font din(final double SIZE) { return new Font(DIN_NAME, SIZE); }
+    public static Font latoLight(final double SIZE) { return new Font(LATO_LIGHT_NAME, SIZE); }
 }

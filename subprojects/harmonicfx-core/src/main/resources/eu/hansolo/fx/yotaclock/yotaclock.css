@@ -1,0 +1,4 @@
+.yota-clock {
+    -background-color: rgb(40, 42, 48); /*linear-gradient(to bottom, rgb(43,45,51) 0%, rgb(39,40,46) 100%);*/
+    -foreground-color: #282a32, white;
+}
