@@ -1,0 +1,18 @@
+dependencies {
+    compile project(':harmonicfx-core')
+    compile "org.kordamp.ikonli:ikonli-fontawesome-pack:$ikonliVersion"
+    compile "org.kordamp.ikonli:ikonli-material-pack:$ikonliVersion"
+    compile "org.kordamp.ikonli:ikonli-materialdesign-pack:$ikonliVersion"
+    compile "org.kordamp.ikonli:ikonli-weathericons-pack:$ikonliVersion"
+}
+
+tasks.addRule('Pattern: demo<ControlName>') { String taskName ->
+    if (taskName.startsWith('demo')) {
+        task (taskName, type: JavaExec) {
+            group = 'Demo'
+            description = "Run the ${taskName[4..-1]} demo"
+            main = "eu.hansolo.fx.${taskName[4..-1].toLowerCase()}.Main".toString()
+            classpath sourceSets.main.runtimeClasspath
+        }
+    }
+}

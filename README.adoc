@@ -1,0 +1,12 @@
+= HarmonicFX
+:linkattrs:
+:project-owner: aalmiray
+:project-repo: kordamp
+:project-name: harmonicfx-core
+
+image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
+image:https://api.bintray.com/packages/{project-owner}/{project-repo}/{project-name}/images/download.svg[link="https://bintray.com/{project-owner}/{project-repo}/{project-name}/_latestVersion"]
+
+---
+
+A collection of link:http://harmoniccode.blogspot.ch/search/label/fridayfun[Friday Fun] JavaFX components authored by link:https://twitter.com/hansolo_[@hansolo_].

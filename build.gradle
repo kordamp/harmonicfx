@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.2'
+        classpath 'org.ajoberstar:gradle-git:1.3.2'
+        classpath 'org.kordamp.gradle:stats-gradle-plugin:0.2.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+    }
+}
+
+allprojects {
+    apply plugin: 'base'
+    apply plugin: 'idea'
+    apply plugin: 'com.github.ben-manes.versions'
+
+    repositories {
+        jcenter()
+    }
+
+    if (JavaVersion.current().isJava8Compatible()) {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
+subprojects { subproj ->
+    apply plugin: 'java'
+    apply plugin: 'com.github.kt3k.coveralls'
+    apply plugin: 'org.kordamp.gradle.stats'
+    apply from: rootProject.file('gradle/code-coverage.gradle')
+    apply from: rootProject.file('gradle/code-quality.gradle')
+    apply from: rootProject.file('gradle/javafx.gradle')
+
+    subproj.tasks.withType(JavaCompile) {
+        sourceCompatibility = subproj.sourceCompatibility
+        targetCompatibility = subproj.targetCompatibility
+    }
+
+    subproj.tasks.withType(GroovyCompile) {
+        sourceCompatibility = subproj.sourceCompatibility
+        targetCompatibility = subproj.targetCompatibility
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        compileOnly project.files(project.jfxrtLocation)
+    }
+}

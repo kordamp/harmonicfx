@@ -1,0 +1,114 @@
+/**
+ * Copyright 2014-2016 Gerrit Grunwald.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.bpm-gauge {
+    -very-light-zone-color : #868695;
+    -light-zone-color      : #0000cc;
+    -moderate-zone-color   : #068a20;
+    -hard-zone-color       : #f76400;
+    -max-zone-color        : #bf1a00;
+
+    -percentage-text-color : white;
+    -percentage-title-color: white;
+    -bpm-text-color        : white;
+    -bpm-title-color       : white;
+    -zone-text-color       : #444444;
+    -name-text-color       : #444444;
+    -warning-text-color    : derive(-max-zone-color, 100%);
+
+    -current-zone-color    : -very-light-zone-color;
+
+    -fx-background-insets  : 0;
+    -fx-background-radius  : 0;
+}
+
+.bpm-gauge .background {
+    -fx-background-color: #eeeeee;
+}
+
+.bpm-gauge .percentage-area {
+    -fx-scale-shape     : true;
+    -fx-shape           : "M 0 27 L 146 27 L 92 81 L 0 81 L 0 27 Z";
+    -fx-background-color: -current-zone-color;
+}
+.bpm-gauge .bpm-area {
+    -fx-scale-shape     : true;
+    -fx-shape           : "M 150 27 L 184 27 L 184 81 L 96 81 L 150 27 Z";
+    -fx-background-color: derive(-current-zone-color, -50%);
+}
+
+.bpm-gauge .percentage-text {
+    -fx-fill: -percentage-text-color;
+}
+.bpm-gauge .percentage-title {
+    -fx-fill: -percentage-title-color;
+}
+
+.bpm-gauge .bpm-text {
+    -fx-fill: -bpm-text-color;
+}
+.bpm-gauge .bpm-title {
+    -fx-fill: -bpm-title-color;
+}
+
+.bpm-gauge:warning .percentage-text, .bpm-gauge:warning .bpm-text {
+    -fx-fill: -warning-text-color;
+}
+
+.bpm-gauge .name-text {
+    -fx-fill: -name-text-color;
+}
+
+.bpm-gauge .zone-text{
+    -fx-fill: -zone-text-color;
+}
+
+.zone-1 .segment {
+    -segment-color: -very-light-zone-color;
+}
+.zone-2 .segment {
+    -segment-color: -light-zone-color;
+}
+.zone-3 .segment {
+    -segment-color: -moderate-zone-color;
+}
+.zone-4 .segment {
+    -segment-color: -hard-zone-color;
+}
+.zone-5 .segment {
+    -segment-color: -max-zone-color;
+}
+
+.bpm-gauge:zone-1 {
+    -current-zone-color: -very-light-zone-color;
+}
+.bpm-gauge:zone-2 {
+    -current-zone-color: -light-zone-color;
+}
+.bpm-gauge:zone-3 {
+    -current-zone-color: -moderate-zone-color;
+}
+.bpm-gauge:zone-4 {
+    -current-zone-color: -hard-zone-color;
+}
+.bpm-gauge:zone-5 {
+    -current-zone-color: -max-zone-color;
+}
+
+.segment {
+    -segment-color: #868695;
+    -fx-fill      : -segment-color;
+    -fx-stroke    : null;
+}
