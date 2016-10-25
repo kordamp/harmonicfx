@@ -2,7 +2,9 @@
 :linkattrs:
 :project-owner: aalmiray
 :project-repo: kordamp
+:project-group: org.kordamp.harmonicfx
 :project-name: harmonicfx-core
+:project-version: 0.1.0
 
 image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
 image:https://api.bintray.com/packages/{project-owner}/{project-repo}/{project-name}/images/download.svg[link="https://bintray.com/{project-owner}/{project-repo}/{project-name}/_latestVersion"]
@@ -10,3 +12,110 @@ image:https://api.bintray.com/packages/{project-owner}/{project-repo}/{project-n
 ---
 
 A collection of link:http://harmoniccode.blogspot.ch/search/label/fridayfun[Friday Fun] JavaFX components authored by link:https://twitter.com/hansolo_[@hansolo_].
+
+== Installing
+
+You can get the latest version of **HarmonicFX** directly from link:https://bintray.com/{project-owner}/{project-repo}/{project-name}/_latestVersion[Bintray's JCenter] repository.
+
+[source]
+[subs="attributes"]
+.Gradle
+----
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile '{project-group}:{project-name}:{project-version}'
+}
+----
+
+[source]
+[subs="attributes,verbatim"]
+.Maven
+----
+<dependencies>
+    <dependency>
+        <groupId>{project-group}</groupId>
+        <artifactId>{project-name}</artifactId>
+        <version>{project-version}</version>
+    </dependency>
+</dependencies>
+
+<repositories>
+    <repository>
+        <id>central</id>
+        <name>jcenter</name>
+        <url>http://jcenter.bintray.com</url>
+    </repository>
+</repositories>
+----
+
+== Building
+
+You must meet the following requirements:
+
+ * JDK8u40 as a minimum
+ * Gradle 3
+
+You may used the included gradle wrapper script if you don't have `gradle` installed.
+
+=== Installing Gradle
+
+.Manual
+
+ . Download Gradle from http://gradle.org/downloads
+ . Unzip the file into a directory without spaces (recommended).
+ . Create a GRADLE_HOME environment variable that points to this directory.
+ . Adjust your PATH environment variable to include $GRADLE_HOME/bin (%GRADLE_HOME%\bin on Windows).
+ . Test your setup by invoking `gradle --version`.
+
+.SDKMAN
+
+ . Follow the instructions found at http://sdkman.io/ to install SDKMAN.
+ . You need a POSIX environment if running Windows. We recommend using Babun Shell (http://babun.github.io/)
+ . Once SDKMAN is installed invoke `sdk install gradle 3.1`.
+ . Test your setup by invoking `gradle --version`.
+
+.Gdub
+
+GDub is a wrapper script that facilitates invoking gradle tasks anywhere within a Gradle project. It's smart enough
+to use the gradle wrapper if available or your global gradle command. This is an optional download.
+
+ . Follow the instructions found at https://github.com/dougborg/gdub to install gdub
+
+=== Next Steps
+
+ . Make a full build issuing `gradle build`.
+ . Run the sampler application by invoking the following commands
+[source]
+----
+$ cd subprojects/harmonicfx-samples
+$ gradle demo<name>
+----
+
+Where <name> stands for any of the following:
+
+ * BpmGauge
+ * CardNav
+ * ChargeControl
+ * CircularProgressIndicator
+ * ColorSelector
+ * Dialplate
+ * FitnessGauge
+ * FunlevelGauge
+ * FunMenu
+ * GradientGauge
+ * QualityGauge
+ * Regulators
+ * Segment
+ * SimpleSectionGauge
+ * SlideCheckbox
+ * SubmitButton
+ * TimeControl
+ * TrafficLight
+ * Weather
+ * WhitGgauge
+ * World
+ * YotaClock
+
