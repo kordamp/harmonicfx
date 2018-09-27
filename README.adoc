@@ -107,6 +107,7 @@ Where <name> stands for any of the following:
  * BpmGauge
  * CardNav
  * ChargeControl
+ * CircularPlot
  * CircularProgressIndicator
  * ColorSelector
  * CoxcombChart
