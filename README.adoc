@@ -110,7 +110,7 @@ Where <name> stands for any of the following:
  * CircularProgressIndicator
  * ColorSelector
  * CoxcombChart
- * Dialplate
+ * DialPlate
  * DotMatrix
  * FitnessGauge
  * FunlevelGauge
@@ -119,6 +119,7 @@ Where <name> stands for any of the following:
  * GradientPicker
  * IOS
  * NestedBarChart
+ * PathGradient
  * QualityGauge
  * Regulators
  * RollingGradient
