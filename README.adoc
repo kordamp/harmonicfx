@@ -4,7 +4,7 @@
 :project-repo:    kordamp
 :project-group:   org.kordamp.harmonicfx
 :project-name:    harmonicfx-core
-:project-version: 0.2.0
+:project-version: 0.2.0-SNAPSHOT
 
 image:http://img.shields.io/travis/aalmiray/{project-name}/master.svg["Build Status (travis)", link="https://travis-ci.org/aalmiray/{project-name}"]
 image:http://img.shields.io/badge/license-ASL2-blue.svg["ASL2 Licensed", link="http://opensource.org/licenses/ASL2"]
@@ -118,6 +118,7 @@ Where <name> stands for any of the following:
  * FunMenu
  * GradientGauge
  * GradientPicker
+ * HorizonChat
  * IOS
  * NestedBarChart
  * PathGradient
