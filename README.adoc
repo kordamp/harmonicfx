@@ -131,6 +131,7 @@ Where <name> stands for any of the following:
  * SlideCheckbox
  * SmoothedChart
  * SubmitButton
+ * SunburstChart
  * TimeControl
  * TrafficLight
  * Weather
