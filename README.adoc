@@ -103,18 +103,22 @@ $ gradle demo<name>
 
 Where <name> stands for any of the following:
 
+ * AnchorSelector
  * BpmGauge
  * CardNav
  * ChargeControl
  * CircularProgressIndicator
  * ColorSelector
  * Dialplate
+ * DotMatrix
  * FitnessGauge
  * FunlevelGauge
  * FunMenu
  * GradientGauge
+ * GradientPicker
  * QualityGauge
  * Regulators
+ * RollingGradient
  * Segment
  * SimpleSectionGauge
  * SlideCheckbox
