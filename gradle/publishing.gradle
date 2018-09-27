@@ -1,49 +1,73 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
+task generateMinPom {
+    doLast {
+        String pomHeader = """<?xml version="1.0" encoding="UTF-8"?>
+            <project xmlns="http://maven.apache.org/POM/4.0.0"
+                     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <modelVersion>4.0.0</modelVersion>
+                <groupId>${project.group}</groupId>
+                <artifactId>${project.name}</artifactId>
+                <version>${project.version}</version>
+        """.stripIndent(12)
+
+        def dependencyTemplate = { dep -> """
+            <dependency>
+                <groupId>$dep.group</groupId>
+                <artifactId>$dep.name</artifactId>
+                <version>$dep.version</version>
+            </dependency>
+        """.stripIndent(4)
+        }
+
+        String deps = configurations.runtime.allDependencies.findAll({it.name!= 'unspecified'})
+            .collect({ dep -> dependencyTemplate(dep)}).join('')
+
+        String pom = pomHeader
+        if (deps) {
+            pom += "    <dependencies>\n$deps\n    </dependencies>\n"
+        }
+        pom += "</project>"
+
+        project.file("$buildDir/tmp/maven").mkdirs()
+        project.file("$buildDir/tmp/maven/pom.xml").text = pom
+    }
+}
+
 jar {
+    dependsOn 'generateMinPom'
     manifest {
         attributes(
-            'Built-By': buildBy,
             'Created-By': buildCreatedBy,
-            'Build-Date': buildDate,
-            'Build-Time': buildTime,
-            'Build-Revision': buildRevision,
+            'x-Built-By': buildBy,
+            'x-Build-Jdk': buildJdk,
+            'x-Build-Date': buildDate,
+            'x-Build-Time': buildTime,
+            'x-Build-Revision': buildRevision,
             'Specification-Title': project.name,
             'Specification-Version': project.version,
             'Implementation-Title': project.name,
             'Implementation-Version': project.version,
+            'Automatic-Module-Name': 'org.kordamp.' + project.name.replaceAll('-', '.')
         )
     }
-}
-
-def pomConfig = {
-    name project.name
-    description project.project_description
-    url project.project_url
-    inceptionYear '2016'
-    licenses {
-        license([:]) {
-            name 'The Apache Software License, Version 2.0'
-            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-            distribution 'repo'
+    metaInf {
+        from(rootProject.files('.')) {
+            include 'LICENSE*'
         }
-    }
-    scm {
-        url project.project_scm
-    }
-    developers {
-        [
-            hansolo_ : 'Gerrit Grunwald',
-            aalmiray : 'Andres Almiray'
-        ].each { devId, devName ->
-            developer {
-                id devId
-                name devName
-                roles {
-                    role 'Developer'
-                }
-            }
+        from(rootProject.file('src/maven')) {
+            into "maven/${project.group}/${project.name}"
+            expand(
+                'gradle_version': gradle.gradleVersion,
+                'project_version': project.version,
+                'project_group': project.group,
+                'project_name': project.name,
+            )
+        }
+        from(file("$buildDir/tmp/maven")) {
+            into "maven/${project.group}/${project.name}"
         }
     }
 }
@@ -55,16 +79,33 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
 
-            pom.withXml {
-                // all dependencies should use the default scope (compile) but
-                // Gradle insists in using runtime as default
-                asNode().dependencies.dependency.each { dep ->
-                    if (dep.scope.text() == 'runtime') {
-                        dep.remove(dep.scope)
+            pom {
+                name = project.name
+                description = project.project_description
+                url = project.project_url
+                inceptionYear = '2015'
+                packaging = 'jar'
+                licenses {
+                    license {
+                        name = 'The Apache Software License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
                     }
                 }
-                asNode().children().last() + pomConfig
-                asNode().appendNode('description', project.project_description)
+                scm {
+                    url = project.project_scm
+                }
+                developers {
+                    [
+                        hansolo_ : 'Gerrit Grunwald',
+                        aalmiray : 'Andres Almiray'
+                    ].each { devId, devName ->
+                        developer {
+                            id = devId
+                            name = devName
+                        }
+                    }
+                }
             }
         }
     }
@@ -72,6 +113,8 @@ publishing {
 
 if (!project.hasProperty('bintrayUsername')) ext.bintrayUsername = ''
 if (!project.hasProperty('bintrayApiKey')) ext.bintrayApiKey = ''
+if (!project.hasProperty('mavenUsername')) ext.mavenUsername = ''
+if (!project.hasProperty('mavenPassword')) ext.mavenPassword = ''
 
 bintray {
     user = project.bintrayUsername
@@ -80,13 +123,23 @@ bintray {
     pkg {
         repo = project.project_bintray_repo
         userOrg = project.project_bintray_org
-        name = project.name
-        desc = project.project_description
+        name = rootProject.name
+        desc = rootProject.project_description
         licenses = ['Apache-2.0']
         labels = ['javafx','widgets']
         websiteUrl = project.project_url
         issueTrackerUrl = project.project_issues
         vcsUrl = project.project_scm
         publicDownloadNumbers = true
+        githubRepo = 'aalmiray/harmonicfx'
+        version {
+            name = project.version
+            vcsTag = "harmonicfx-${project.version}"
+            mavenCentralSync {
+                sync = true
+                user = project.mavenUsername
+                password = project.mavenPassword
+            }
+        }
     }
 }

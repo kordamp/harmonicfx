@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2016 Gerrit Grunwald.
+ * Copyright 2013-2018 Gerrit Grunwald.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
