@@ -123,6 +123,7 @@ Where <name> stands for any of the following:
  * QualityGauge
  * Regulators
  * RollingGradient
+ * SankeyPlot
  * Segment
  * SimpleSectionGauge
  * SlideCheckbox
