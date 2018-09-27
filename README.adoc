@@ -129,6 +129,7 @@ Where <name> stands for any of the following:
  * Segment
  * SimpleSectionGauge
  * SlideCheckbox
+ * SmoothedChart
  * SubmitButton
  * TimeControl
  * TrafficLight
