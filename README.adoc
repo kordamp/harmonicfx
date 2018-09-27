@@ -109,6 +109,7 @@ Where <name> stands for any of the following:
  * ChargeControl
  * CircularProgressIndicator
  * ColorSelector
+ * CoxcombChart
  * Dialplate
  * DotMatrix
  * FitnessGauge
