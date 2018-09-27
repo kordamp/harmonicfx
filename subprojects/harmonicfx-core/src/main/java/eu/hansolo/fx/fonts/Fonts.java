@@ -35,6 +35,7 @@ public class Fonts {
     private static final String ROBOTO_BOLD_CONDENSED_NAME;
     private static final String DIN_NAME;
     private static final String LATO_LIGHT_NAME;
+    private static final String LATO_REGULAR_NAME;
 
     private static String robotoThinName;
     private static String robotoLightName;
@@ -46,6 +47,7 @@ public class Fonts {
     private static String robotoBoldCondensedName;
     private static String dinName;
     private static String latoLightName;
+    private static String latoRegularName;
 
     static {
         try {
@@ -59,6 +61,7 @@ public class Fonts {
             robotoBoldCondensedName    = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/RobotoCondensed-Bold.ttf"), 10).getName();
             dinName                    = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/DIN.ttf"), 10).getName();
             latoLightName              = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/Lato-Lig.ttf"), 10).getName();
+            latoRegularName            = Font.loadFont(Fonts.class.getResourceAsStream("/eu/hansolo/fx/fonts/Lato-Reg.ttf"), 10).getName();
         } catch (Exception exception) { }
         ROBOTO_THIN_NAME              = robotoThinName;
         ROBOTO_LIGHT_NAME             = robotoLightName;
@@ -70,6 +73,7 @@ public class Fonts {
         ROBOTO_BOLD_CONDENSED_NAME    = robotoBoldCondensedName;
         DIN_NAME                      = dinName;
         LATO_LIGHT_NAME               = latoLightName;
+        LATO_REGULAR_NAME             = latoRegularName;
     }
 
 
@@ -84,4 +88,5 @@ public class Fonts {
     public static Font robotoCondensedBold(final double SIZE) { return new Font(ROBOTO_BOLD_CONDENSED_NAME, SIZE); }
     public static Font din(final double SIZE) { return new Font(DIN_NAME, SIZE); }
     public static Font latoLight(final double SIZE) { return new Font(LATO_LIGHT_NAME, SIZE); }
+    public static Font latoRegular(final double SIZE) { return new Font(LATO_REGULAR_NAME, SIZE); }
 }

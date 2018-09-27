@@ -116,6 +116,8 @@ Where <name> stands for any of the following:
  * FunMenu
  * GradientGauge
  * GradientPicker
+ * IOS
+ * NestedBarChart
  * QualityGauge
  * Regulators
  * RollingGradient
