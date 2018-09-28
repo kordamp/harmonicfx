@@ -112,6 +112,7 @@ Where <name> stands for any of the following:
  * ColorSelector
  * CoxcombChart
  * DialPlate
+ * DonutChart
  * DotMatrix
  * FitnessGauge
  * FunIndicator
