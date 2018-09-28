@@ -136,6 +136,7 @@ Where <name> stands for any of the following:
  * SubmitButton
  * SunburstChart
  * TimeControl
+ * Timer
  * TrafficLight
  * Weather
  * WhitGgauge

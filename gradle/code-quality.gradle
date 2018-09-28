@@ -12,6 +12,7 @@ license {
     ext.author = 'Gerrit Grunwald'
     exclude '**/*.png'
     exclude '**/*.ttf'
+    exclude '**/*.otf'
 }
 
 licenseTest {
