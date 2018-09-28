@@ -3,7 +3,7 @@
 :project-owner:   aalmiray
 :project-repo:    kordamp
 :project-group:   org.kordamp.harmonicfx
-:project-name:    harmonicfx-core
+:project-name:    harmonicfx
 :project-version: 0.2.0
 
 image:http://img.shields.io/travis/aalmiray/{project-name}/master.svg["Build Status (travis)", link="https://travis-ci.org/aalmiray/{project-name}"]
@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compile '{project-group}:{project-name}:{project-version}'
+    compile '{project-group}:{project-name}-core:{project-version}'
 }
 ----
 
@@ -40,7 +40,7 @@ dependencies {
 <dependencies>
     <dependency>
         <groupId>{project-group}</groupId>
-        <artifactId>{project-name}</artifactId>
+        <artifactId>{project-name}-core</artifactId>
         <version>{project-version}</version>
     </dependency>
 </dependencies>
