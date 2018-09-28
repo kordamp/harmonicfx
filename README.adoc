@@ -18,29 +18,29 @@ A collection of link:http://harmoniccode.blogspot.ch/search/label/fridayfun[Frid
 
 == Installing
 
-You can get the latest version of **HarmonicFX** directly from link:https://bintray.com/{project-owner}/{project-repo}/{project-name}/_latestVersion[Bintray's JCenter] repository.
+You can get the latest version of **HarmonicFX** directly from link:https://bintray.com[Bintray's JCenter] repository or Maven Central.
 
-[source]
+[source,groovy]
 [subs="attributes"]
-.Gradle
+.gradle
 ----
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile '{project-group}:{project-name}-core:{project-version}'
+    compile '{project-group}:harmonicfx-core:{project-version}'
 }
 ----
 
-[source]
+[source,xml]
 [subs="attributes,verbatim"]
-.Maven
+.maven
 ----
 <dependencies>
     <dependency>
         <groupId>{project-group}</groupId>
-        <artifactId>{project-name}-core</artifactId>
+        <artifactId>harmonicfx-core</artifactId>
         <version>{project-version}</version>
     </dependency>
 </dependencies>
