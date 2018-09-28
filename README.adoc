@@ -125,6 +125,7 @@ Where <name> stands for any of the following:
  * NestedBarChart
  * PathGradient
  * QualityGauge
+ * RadialChart
  * Regulators
  * RollingGradient
  * SankeyPlot
