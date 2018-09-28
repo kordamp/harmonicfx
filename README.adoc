@@ -114,6 +114,7 @@ Where <name> stands for any of the following:
  * DialPlate
  * DotMatrix
  * FitnessGauge
+ * FunIndicator
  * FunlevelGauge
  * FunMenu
  * GradientGauge
