@@ -58,6 +58,13 @@ dependencies {
 
 HarmonicFX can be used in a modular fashion when running in Java9+. It's module name is `org.kordamp.harmonicfx.core`.
 
+=== JavaFX 11
+
+Classes found in the following packages may not be compatible with JavaFX 11 or greater due to API changes
+
+ * `eu.hansolo.fx.ios`
+ * `eu.hansolo.fx.smoothedchart`
+
 == Building
 
 You must meet the following requirements:
