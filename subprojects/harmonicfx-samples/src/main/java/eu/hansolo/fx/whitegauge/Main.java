@@ -69,7 +69,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(pane);
 
-        stage.setTitle("White Gauge");
+        stage.setTitle("WhiteGauge");
         stage.setScene(scene);
         stage.show();
 

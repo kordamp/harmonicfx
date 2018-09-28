@@ -272,7 +272,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(pane);
 
-        stage.setTitle("Worldmap");
+        stage.setTitle("World");
         stage.setScene(scene);
         stage.show();
     }

@@ -107,7 +107,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(box);
 
-        stage.setTitle("JavaFX TrafficLight");
+        stage.setTitle("TrafficLight");
         stage.setScene(scene);
         stage.show();
 
