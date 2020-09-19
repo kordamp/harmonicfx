@@ -20,7 +20,7 @@ plugins {
 }
 
 dependencies {
-    api 'eu.hansolo:Medusa:8.0'
+    api 'eu.hansolo:Medusa:8.3'
     api 'eu.hansolo:colors:1.4'
     api 'eu.mihosoft.jfx.scaledfx:scaledfx:0.4'
     api('com.googlecode.json-simple:json-simple:1.1.1') { transitive = false }
